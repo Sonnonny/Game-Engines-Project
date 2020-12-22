@@ -20,7 +20,7 @@ public class PlayerGravity : MonoBehaviour
     {
         if (attractorPlanet)
         {
-            attractorPlanet.Attract(playerTransform);
+            attractorPlanet.Attract(playerTransform,true);
         }
     }
 }
