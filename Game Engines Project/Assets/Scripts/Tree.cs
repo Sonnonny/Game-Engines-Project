@@ -17,7 +17,7 @@ public class Tree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("World").GetComponent<WorldGravity>().Attract(transform,false);
+        
 
         GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
 
@@ -31,6 +31,16 @@ public class Tree : MonoBehaviour
 
         iterations = (int)Random.Range(minMax.x, minMax.y);
         if (iterations > 0) StartTree();
+
+
+
+        Invoke("SetRotation", 0.02f);
+    }
+
+
+    void SetRotation()
+    {
+        GameObject.FindGameObjectWithTag("World").GetComponent<WorldGravity>().Attract(transform, false);
     }
 
     void StartTree()
