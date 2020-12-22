@@ -15,13 +15,14 @@ public class Tree : MonoBehaviour
     void Start()
     {
         iterations = (int)Random.Range(minMax.x, minMax.y);
+        if (iterations > 0) StartTree();
     }
 
-    // Update is called once per frame
-    void Update()
+    void StartTree()
     {
-        
+        iterations--;
+        GameObject Go = Instantiate(parts[Random.Range(0,parts.Length)],transform.position,Quaternion.identity,transform);
+        Go.GetComponent<Part>().Create(iterations,iterations+1);
     }
-
 
 }
