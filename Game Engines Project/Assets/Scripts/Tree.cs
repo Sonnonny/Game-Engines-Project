@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
+    public static int treeAmount;
+
 
     public GameObject[] parts;
 
@@ -28,6 +30,9 @@ public class Tree : MonoBehaviour
                 if (Vector3.Distance(transform.position, tree.transform.position) < 10) Destroy(gameObject);
             }
         }
+        //treeAmount++;
+        
+
 
         iterations = (int)Random.Range(minMax.x, minMax.y);
         if (iterations > 0) StartTree();
@@ -41,6 +46,7 @@ public class Tree : MonoBehaviour
     void SetRotation()
     {
         GameObject.FindGameObjectWithTag("World").GetComponent<WorldGravity>().Attract(transform, false);
+        //Debug.Log(treeAmount);
     }
 
     void StartTree()

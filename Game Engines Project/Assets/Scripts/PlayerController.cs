@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-            jump = new Vector3(0, 4, 0);
+            jump = new Vector3(0, 8, 0);
         }
 
         //rb.velocity += (moveDirection+jump )* moveSpeed * Time.deltaTime;
