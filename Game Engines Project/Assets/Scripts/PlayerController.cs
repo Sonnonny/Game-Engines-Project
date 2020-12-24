@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class PlayerController : MonoBehaviour
     public float runMult;
     public LayerMask groundLayer;
     public float jumpPower;
+
+    public float O2;
+    public float oxLevel;
+    public Image meter;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -42,5 +49,21 @@ public class PlayerController : MonoBehaviour
         }
 
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection) * moveSpeed * run* Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
+        oxLevel -= Time.deltaTime;
+        meter.fillAmount = oxLevel / O2;
+
+        if (oxLevel <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
     }
 }

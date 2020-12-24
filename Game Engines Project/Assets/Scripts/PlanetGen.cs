@@ -13,9 +13,17 @@ public class PlanetGen : MonoBehaviour
     public Vector3 center;
     public int radius;
 
+    public MeshRenderer meshRen;
+    public Material[] mats;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        meshRen.material = mats[Random.Range(0, mats.Length)];
+        meshRen.material.SetColor("_ColorTint", new Color(Random.value,Random.value,Random.value,1));
+
+
         trees = (int)Random.Range(range.x, range.y);
 
         CreateScene();
