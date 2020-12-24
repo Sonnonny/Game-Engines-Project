@@ -18,6 +18,8 @@ public class Tree : MonoBehaviour
 
     static float sizeMult;
 
+    public int treeSet;
+
     //public WorldGravity worldGravity;
 
     // Start is called before the first frame update
@@ -31,14 +33,16 @@ public class Tree : MonoBehaviour
         {
             if (tree != gameObject)
             {
-                if (Vector3.Distance(transform.position, tree.transform.position) < 10) Destroy(gameObject);
+                if (Vector3.Distance(transform.position, tree.transform.position) < (10)*(0.5f + 600-treeSet)/300) Destroy(gameObject);
             }
         }
         //treeAmount++;
         
+        int mult = (600 - treeSet) / 100;
+        int calc = (int)Mathf.Round(mult);
 
-
-        iterations = (int)Random.Range(minMax.x, minMax.y);
+        iterations = 1 + calc;//Random.Range(1+calc,1+5*calc);
+        //Debug.Log(treeSet + "       " +(1+calc) +" "+(1+5*calc) + "         " + iterations);
         if (iterations > 0) StartTree();
 
 

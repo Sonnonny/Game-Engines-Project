@@ -53,16 +53,16 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 0
-    value: 0
+    value: 100
   tint:
     overrideState: 0
-    value: -87
+    value: -100
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 0
-    value: -13
+    overrideState: 1
+    value: 180
   saturation:
     overrideState: 1
     value: 100
@@ -1311,43 +1311,6 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &-5752395129610028689
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
-  m_Name: ScreenSpaceReflections
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  preset:
-    overrideState: 1
-    value: 2
-  maximumIterationCount:
-    overrideState: 0
-    value: 16
-  resolution:
-    overrideState: 0
-    value: 0
-  thickness:
-    overrideState: 0
-    value: 8
-  maximumMarchDistance:
-    overrideState: 1
-    value: 116.08
-  distanceFade:
-    overrideState: 1
-    value: 1
-  vignette:
-    overrideState: 1
-    value: 0
 --- !u!114 &-3989736759643286127
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1416,7 +1379,6 @@ MonoBehaviour:
   - {fileID: -3989736759643286127}
   - {fileID: 7624458703798259638}
   - {fileID: -7871282146480511946}
-  - {fileID: -5752395129610028689}
   - {fileID: -3809295028262119945}
 --- !u!114 &319613874705429746
 MonoBehaviour:

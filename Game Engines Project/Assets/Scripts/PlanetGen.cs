@@ -24,7 +24,9 @@ public class PlanetGen : MonoBehaviour
         meshRen.material.SetColor("_ColorTint", new Color(Random.value,Random.value,Random.value,1));
 
 
-        trees = (int)Random.Range(range.x, range.y);
+        //range = new Vector2(Random.Range(50,150), Random.Range(150,600));
+
+        trees = Random.Range(50,600);
 
         CreateScene();
     }
@@ -44,7 +46,8 @@ public class PlanetGen : MonoBehaviour
         for (int i =0; i<trees; i++)
         {
             Vector3 spherePoint = Random.onUnitSphere;
-            Instantiate(tree, center + spherePoint * radius, Quaternion.identity, transform);
+            GameObject go = Instantiate(tree, center + spherePoint * radius, Quaternion.identity, transform);
+            go.GetComponent<Tree>().treeSet = trees;
         }
     }
 }

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public float oxLevel;
     public Image meter;
 
-    private PostProcessVolume _volume;
+    public PostProcessVolume _volume;
     ColorGrading col;
     Bloom blo;
     //Vignette vig;
@@ -31,11 +31,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         EffectSetup();
+        Effects();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
 
 
@@ -83,7 +86,8 @@ public class PlayerController : MonoBehaviour
         col.enabled.Override(true);
         col.saturation.Override(0);
         col.temperature.Override(0);
-        col.hueShift.Override(15);
+        col.tint.Override(0);
+        col.hueShift.Override(0);
         _volume = PostProcessManager.instance.QuickVolume(8, 100f, col);
 
         blo = ScriptableObject.CreateInstance<Bloom>();
@@ -96,12 +100,27 @@ public class PlayerController : MonoBehaviour
         gra.intensity.Override(0);
         gra.size.Override(0);
         _volume = PostProcessManager.instance.QuickVolume(8, 100f, gra);
+    }
+
+    private void Effects()
+    {
 
 
-        col.saturation.value = Random.Range(0, 100.0f);
-        col.temperature.value = 0;
-        blo.intensity.value = Random.Range(1,9.0f);
-        gra.intensity.value = Random.Range(0.02f, 0.5f);
-        gra.size.value = Random.Range(0.2f, 0.5f);
+
+        col.saturation.value = 100 * Mathf.RoundToInt(Random.value);
+        col.temperature.value = Random.Range(-100.0f, 100.0f);
+        col.tint.value = Random.Range(-100.0f, 100.0f);
+        col.hueShift.value = Random.Range(-180.0f, 180.0f);
+        col.postExposure.value = Random.Range(-2, 2);
+
+        blo.intensity.value = Random.Range(0.2f, 3.0f);
+
+        gra.intensity.value = Random.Range(0.02f, 0.7f);
+        gra.size.value = Random.Range(0.2f, 2f);
+
+
+
+
+        //_volume.profile.over
     }
 }
