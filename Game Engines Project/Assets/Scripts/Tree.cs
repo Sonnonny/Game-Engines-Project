@@ -79,7 +79,7 @@ public class Tree : MonoBehaviour
 
             //}
 
-            sizeMult = 1 + spectrum[(int)Mathf.Round(Time.time%spectrum.Length)] * 60;
+            sizeMult = 1 + spectrum[(int)Mathf.Round(Time.time%(spectrum.Length-1))] * 60;
         }
 
         transform.localScale = new Vector3(sizeMult, sizeMult, sizeMult);
