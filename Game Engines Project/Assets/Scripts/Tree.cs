@@ -69,11 +69,13 @@ public class Tree : MonoBehaviour
 
             AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
 
-            for (int i = 1; i < spectrum.Length - 1; i++)
-            {
-                sizeMult = 1 + spectrum[i] * 500;
+            //for (int i = 1; i < spectrum.Length - 1; i++)
+            //{
+            //    sizeMult = 1 + spectrum[i] * 500;
 
-            }
+            //}
+
+            sizeMult = 1 + spectrum[(int)Mathf.Round(Time.time%spectrum.Length)] * 60;
         }
 
         transform.localScale = new Vector3(sizeMult, sizeMult, sizeMult);
